@@ -1,0 +1,180 @@
+---
+import { Icon } from 'astro-icon';
+import { headerData } from '../../data';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+  alt?: string;
+  links?: Array<any>;
+}
+
+interface MenuLink extends Link {
+  links?: Array<Link>;
+}
+
+export interface Props {
+  label?: string;
+  class?: string;
+  iconClass?: string;
+  iconName?: string;
+  links?: Array<MenuLink>;
+}
+
+const {
+  label = 'Toggle Menu',
+  class:
+    className = 'ml-1.5 text-dgSecondary dark:text-dgSecondaryDM focus:outline-none rounded-lg text-sm p-2.5 inline items-center transition',
+} = Astro.props;
+---
+<div class="relative">
+  <button type="button" id="menu-toggle" class={ className } aria-label={ label } data-aw-toggle-menu>
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24"
+    >
+      <style>
+        path {
+          fill: #245881;
+        }
+        @media (prefers-color-scheme: dark) {
+          path {
+            fill: #F5F5F5;
+          }
+        }
+      </style>
+      <path 
+        stroke="currentColor" 
+        stroke-linecap="round" 
+        stroke-width="1.5" 
+        d="M20 7H4m16 5H4m16 5H4"
+      />
+    </svg>
+  </button>
+
+  <button 
+    id="menu-close-btn"
+    class="hidden absolute -top-3 -left-8"
+  >
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="24" 
+      height="24" 
+      viewBox="0 0 24 24"
+    >
+      <style>
+        path {
+          fill: #245881;
+        }
+        @media (prefers-color-scheme: dark) {
+          path {
+            fill: #F5F5F5;
+          }
+        }
+      </style>
+      <path d="m12 13.4l-4.9 4.9q-.275.275-.7.275t-.7-.275q-.275-.275-.275-.7t.275-.7l4.9-4.9l-4.9-4.9q-.275-.275-.275-.7t.275-.7q.275-.275.7-.275t.7.275l4.9 4.9l4.9-4.9q.275-.275.7-.275t.7.275q.275.275.275.7t-.275.7L13.4 12l4.9 4.9q.275.275.275.7t-.275.7q-.275.275-.7.275t-.7-.275L12 13.4Z"/>
+    </svg>
+  </button>
+
+  <div id="menu-link-div" class="absolute hidden w-screen h-screen top-5 right-0 bg-white dark:bg-gray-900 px-8 py-8"> 
+
+    
+    <ul id="toggle-list" class="">     
+
+      { headerData.links.map(({ text, href, links, icon, alt }) => (
+        <li class={ links?.length ? 'dropdown' : ''}>
+          <div class="border-b pb-4 border-gray-300">
+          { links?.length ? (
+            <div class="group">
+              <div class="border-dgPrimary dark:border-dgPrimaryDM ">
+                <button 
+                  id="solutions-btn"
+                  class="w-full text-lg pt-4 text-dgPrimary dark:text-dgPrimaryDM flex justify-between items-center">
+                  <div>{ text }</div>
+                  <div class="pr-2"> +</div>
+                </button>  
+              </div>  
+
+              <div 
+                id="sub-menu"
+                class="hidden ml-4 pt-0 mt-0"
+                role="menu"
+                tabindex="-1"
+              >
+                <div role="none" class="">
+                  { links?.map(({ text: text2, href: href2, icon, alt }) => (
+                    <a 
+                      class="text-lg text-dgSecondary dark:text-dgSecondaryDM" 
+                      href={ href2 } 
+                      role="menuitem"
+                    >
+                      <p class="pt-3">{ text2 }</p>
+                    </a>
+                  ))}
+                </div>
+                
+              </div>
+
+              
+            </div>
+          ) : (
+
+              <a 
+                class="text-lg text-dgSecondary dark:text-dgSecondaryDM" 
+                href={ href }
+              >
+                <div class="flex flex-wrap items-center justify-start pt-3">
+                  <img src={ icon } alt={ alt }/>
+                  <p class="text-center pl-2">{ text }</p>
+                </div>
+              </a>
+          )}
+        </li>
+      </div>
+      ))}
+    </ul>
+  </div>
+</div>
+
+<script>
+  const menuIcon = document.getElementById('menu-button');
+  const menuButton = document.getElementById('menu-toggle');
+  const linkListDiv = document.getElementById('toggle-list');
+  const menuCloseBtn = document.getElementById('menu-close-btn');
+  const menuLinkDiv = document.getElementById('menu-link-div');
+  const solutionsBtn = document.getElementById('solutions-btn');
+  const subMenuDiv = document.getElementById('sub-menu');
+
+  solutionsBtn?.addEventListener('click', () => {
+    if(subMenuDiv?.classList.contains("hidden")) {
+      subMenuDiv.classList.remove("hidden")
+    } else {
+      subMenuDiv?.classList.add("hidden");
+    }
+  })
+
+  menuButton?.addEventListener('click', () => {
+    if(menuLinkDiv?.classList.contains("hidden")) {
+      menuLinkDiv.classList.remove("hidden");
+      menuLinkDiv.classList.add("inline");
+      menuButton.classList.add("hidden");
+      menuCloseBtn?.classList.remove("hidden");
+      menuCloseBtn?.classList.add("inline");
+    } 
+  })
+
+  menuCloseBtn?.addEventListener('click', () => {
+    if(menuLinkDiv?.classList.contains("inline")) {
+      menuLinkDiv.classList.remove("inline");
+      menuLinkDiv.classList.add("hidden");
+      menuButton?.classList.remove("hidden");
+      menuButton?.classList.add("inline");
+      menuCloseBtn?.classList.remove("inline");
+      menuCloseBtn?.classList.add("hidden");
+    }
+  })
+</script>

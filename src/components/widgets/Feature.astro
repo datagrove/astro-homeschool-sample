@@ -9,19 +9,36 @@ const features = await getCollection('features', ({ data }) => {
 // let testBtnNum = 0;
 
 let { testBtnNum = 0 } = Astro.props;
+
+let currBtnIdFront = testBtnNum;
 ---
 
-<div data-message={ testBtnNum } class="bg-red-300 md:flex md:mt-12">
-    <div class="md:w-2/3">
-        <h1 set:html={ features[testBtnNum].data.title }/>
-        <p set:html={ features[testBtnNum].data.description } />
-        <button id=0 class="rounded bg-blue-300 p-4 m-2">1</button>        
-        <button id=1 class="rounded bg-blue-300 p-4 m-2">2</button>
-        <button id=2 class="rounded bg-blue-300 p-4 m-2">3</button>
+<div data-message={ testBtnNum } class="bg-red-300 h-48 md:flex md:mt-12">
+    <div class="md:w-2/3 md:flex md:flex-col md:justify-between">
+        <div id="feature0" class="inline">
+            <h1 set:html={ features[0].data.title }/>
+            <p set:html={ features[0].data.description } />
+        </div>
+
+        <div id="feature1" class="hidden">
+            <h1 set:html={ features[1].data.title }/>
+            <p set:html={ features[1].data.description } />
+        </div>
+
+        <div id="feature2" class="hidden">
+            <h1 set:html={ features[2].data.title }/>
+            <p set:html={ features[2].data.description } />
+        </div>
+
+        <div>
+            <button id=0 class="rounded bg-blue-300 px-4 py-2 m-2">1</button>        
+            <button id=1 class="rounded bg-blue-300 px-4 py-2 m-2">2</button>
+            <button id=2 class="rounded bg-blue-300 px-4 py-2 m-2">3</button>
+        </div>
     </div>
 
     <div class="md:w-1/3">
-        testBtnNum: { testBtnNum }
+
     </div>
 </div>
 
@@ -33,7 +50,12 @@ let { testBtnNum = 0 } = Astro.props;
 
     let currBtnId;
 
-
+    const btn0 = document.getElementById("0");
+    const btn1 = document.getElementById("1");
+    const btn2 = document.getElementById("2");
+    const ftr0 = document.getElementById("feature0");
+    const ftr1 = document.getElementById("feature1");
+    const ftr2 = document.getElementById("feature2");
     // alert(testBtnNum);
 
     buttons.forEach((button) => {
@@ -41,9 +63,30 @@ let { testBtnNum = 0 } = Astro.props;
             setBtnNum(button.id);
             currBtnId = Number(btnNum());
             console.log("currBtnId: ", currBtnId)
-            // alert(testBtnNum)
-            console.log("this: ")
+            // alert(btnNum())
 
+            if(currBtnId == 0) {
+                ftr0?.classList.add('inline');
+                ftr0?.classList.remove("hidden");
+                ftr1?.classList.remove("inline");
+                ftr1?.classList.add("hidden");
+                ftr2?.classList.remove("inline");
+                ftr2?.classList.add("hidden");
+            } else if(currBtnId == 1) {
+                ftr1?.classList.remove('hidden');
+                ftr1?.classList.add("inline");
+                ftr0?.classList.remove("inline");
+                ftr0?.classList.add("hidden");
+                ftr2?.classList.remove("inline");
+                ftr2?.classList.add("hidden");
+            } else {
+                ftr2?.classList.add("inline");
+                ftr2?.classList.remove("hidden");
+                ftr1?.classList.remove("inline");
+                ftr1?.classList.add("hidden");
+                ftr0?.classList.remove("inline");
+                ftr0?.classList.add("hidden");
+            }
         });
     });
 </script>
