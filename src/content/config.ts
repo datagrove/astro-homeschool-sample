@@ -4,6 +4,8 @@ const features = defineCollection({
     schema: z.object({
         title: z.string(),
         description: z.string(),
+        image: z.string().optional(),
+        alt: z.string().optional(),
         draft: z.boolean().optional(),
     })
 })

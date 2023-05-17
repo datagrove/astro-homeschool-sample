@@ -10,8 +10,12 @@ module.exports = {
 				dgPrimaryDM: "#73A92F",
 				dgSecondaryDM: "#F5F5F5",
 				accentDM: "#2FA9A2",
-				cardBackgroundDM: "#2F2F2F"
+				cardBackgroundDM: "#2F2F2F",
+				dgTextPrimary: "#BFD39B"
 			},
+			backgroundImage: {
+				'feature-img': "url('/images/3dprinter.jpg')"
+			}
 		},
 	},
 	plugins: [],
