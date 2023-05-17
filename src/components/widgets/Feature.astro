@@ -13,28 +13,52 @@ let { testBtnNum = 0 } = Astro.props;
 let currBtnIdFront = testBtnNum;
 ---
 
-<div data-message={ testBtnNum } class="bg-red-300 h-48 md:flex md:mt-12">
-    <div class="md:w-2/3 md:flex md:flex-col md:justify-between">
+<div data-message={ testBtnNum } class="bg-blue-200 h-64 mt-12 px-2">
+    <!-- <img 
+        src="../../../../public/images/3dprinter.jpg" 
+        alt="Children looking at a 3D printer"
+        class="absolute opacity-20"
+    /> -->
+    
+    <div class="md:w-2/3 flex flex-col justify-end h-3/4 pb-4">
         <div id="feature0" class="inline">
-            <h1 set:html={ features[0].data.title }/>
-            <p set:html={ features[0].data.description } />
+            <h1 class="text-xl pb-2" set:html={ features[0].data.title }/>
+            <p class="italic text-sm" set:html={ features[0].data.description } />
         </div>
 
         <div id="feature1" class="hidden">
-            <h1 set:html={ features[1].data.title }/>
-            <p set:html={ features[1].data.description } />
+            <h1 class="text-xl pb-2" set:html={ features[1].data.title }/>
+            <p class="italic text-sm" set:html={ features[1].data.description } />
         </div>
 
         <div id="feature2" class="hidden">
-            <h1 set:html={ features[2].data.title }/>
-            <p set:html={ features[2].data.description } />
+            <h1 class="text-xl pb-2" set:html={ features[2].data.title }/>
+            <p class="italic text-sm" set:html={ features[2].data.description } />
         </div>
+    </div>
 
-        <div>
-            <button id=0 class="rounded bg-blue-300 px-4 py-2 m-2">1</button>        
-            <button id=1 class="rounded bg-blue-300 px-4 py-2 m-2">2</button>
-            <button id=2 class="rounded bg-blue-300 px-4 py-2 m-2">3</button>
-        </div>
+    <div class="flex h-1/4">
+        <button 
+            id=0 
+            class="rounded-full bg-dgPrimary px-7 mr-2"
+        >
+            <p class="text-white">1</p>
+            <!-- <img src="images/3dprinter.jpg" class=""/> -->
+        </button>        
+        
+        <button 
+            id=1 
+            class="rounded-full bg-dgPrimary px-7 mr-2"
+        >
+            <p class="text-white">2</p>
+        </button>
+        
+        <button 
+            id=2 
+            class="rounded-full bg-dgPrimary px-7 mr-2"
+        >
+            <p class="text-white">3</p>
+        </button>
     </div>
 
     <div class="md:w-1/3">
