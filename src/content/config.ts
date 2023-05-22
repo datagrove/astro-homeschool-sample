@@ -19,7 +19,24 @@ const highlights = defineCollection({
         draft: z.boolean().optional(),
     })
 })
+
+const events = defineCollection({
+    schema: z.object({
+        date: z.string(),
+        title: z.string(),
+        link: z.string().optional(),
+        description: z.string().optional(),
+        image: z.string().optional(),
+        alt: z.string().optional(),
+        location: z.string().optional(),
+        start: z.string(),
+        end: z.string().optional(),
+        draft: z.boolean().optional(),
+
+    })
+})
 export const collections = {
     'features': features,
-    'highlights': highlights
+    'highlights': highlights,
+    'events': events
 };

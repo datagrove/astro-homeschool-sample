@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+
+const events = await getCollection('events', ({ data }) => {
+    return data.draft !==true;
+})
+---
+<div>
+    <div>
+        { 
+            events.map(( event ) => (
+            <div>
+                { event?.data.title }
+            </div>    
+            
+            ))
+        }
+    </div>
+</div>

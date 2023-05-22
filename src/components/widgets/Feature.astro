@@ -1,6 +1,5 @@
 ---
 import { getCollection } from 'astro:content';
-import { createSignal } from 'solid-js';
 
 const features = await getCollection('features', ({ data }) => {
     return data.draft !== true;
