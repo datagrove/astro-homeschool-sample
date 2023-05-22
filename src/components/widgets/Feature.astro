@@ -15,25 +15,25 @@ let { testBtnNum = 0 } = Astro.props;
 let currBtnIdFront = testBtnNum;
 ---
 
-<div data-message={ testBtnNum } class="bg-feature-img bg-cover shadow h-64 mt-12 mb-4 mx-4 p-4 grid grid-rows-6">
+<div data-message={ testBtnNum } class="md:bg-feature-img bg-cover shadow h-64 md:mt-12 mb-4 mx-2 md:mx-4 md:p-4 grid grid-rows-6">
     <!-- <img 
         src="../../../../public/images/3dprinter.jpg" 
         alt="Children looking at a 3D printer"
         class="absolute opacity-20"
     /> -->
     
-    <div class="md:w-2/3 flex flex-col pb-10 row-start-3">
-        <div id="feature0" class="inline bg-gray-100 opacity-80 rounded py-4 px-1">
+    <div class="md:w-2/3 flex flex-col pb-10 row-start-2 md:row-start-3">
+        <div id="feature0" class="inline md:bg-gray-100 opacity-80 rounded py-4 px-1">
             <h1 class="text-xl pb-2" set:html={ features[0].data.title }/>
             <p class="italic text-sm" set:html={ features[0].data.description } />
         </div>
 
-        <div id="feature1" class="hidden bg-gray-100 opacity-80 rounded py-4 px-1">
+        <div id="feature1" class="hidden md:bg-gray-100 opacity-80 rounded py-4 px-1">
             <h1 class="text-xl pb-2" set:html={ features[1].data.title }/>
             <p class="italic text-sm" set:html={ features[1].data.description } />
         </div>
 
-        <div id="feature2" class="hidden bg-gray-100 opacity-80 rounded py-4 px-1">
+        <div id="feature2" class="hidden md:bg-gray-100 opacity-80 rounded py-4 px-1">
             <h1 class="text-xl pb-2" set:html={ features[2].data.title }/>
             <p class="italic text-sm" set:html={ features[2].data.description } />
         </div>
