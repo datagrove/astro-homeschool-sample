@@ -35,8 +35,25 @@ const events = defineCollection({
 
     })
 })
+
+const programs = defineCollection({
+    schema: z.object({
+        title: z.string(),
+        href: z.string().optional(),
+        description1: z.string(),
+        description2: z.string().optional(),
+        leaderTitle: z.string(),
+        leaderNames: z.string(),
+        leaderImage: z.string().optional(),
+        email: z.string().optional(),
+        programPhoto: z.string().optional(),
+        flierImage: z.string().optional(),
+        draft: z.boolean().optional()
+    })
+})
 export const collections = {
     'features': features,
     'highlights': highlights,
-    'events': events
+    'events': events,
+    'programs': programs,
 };

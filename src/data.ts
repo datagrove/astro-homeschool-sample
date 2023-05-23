@@ -7,29 +7,60 @@ export const headerData = {
             alt: "Home icon"
         },
         {
+            text: "About",
+            links: [
+                {
+                    text: "OHA Guidelines",
+                    href: "/guidelines"
+                },
+                {
+                    text: "FAQs",
+                    href: "/faq"
+                },
+                {
+                    text: "Contact Info",
+                    href: "/contact"
+                }
+            ]
+        },
+        {
+            text: "Programs",
+            links: [
+                {
+                    text: "Chess Club",
+                    href: "/programs/chess-club"
+                },
+                {
+                    text: "LEAP",
+                    href: "programs/leap"
+                },
+            ]
+        },
+        {
             text: "Join",
             href: "/join",
             icon: "/add.svg",
             alt: "Join icon"
         },
-        {
-            text: "Contact",
-            href: "/contact",
-            icon: "/email.svg",
-            alt: "Contact icon"
-        },
-        {
-            text: "FAQs",
-            href: "/faq",
-            icon: "/faq.png",
-            alt: "FAQ icon"
-        },
+        // {
+        //     text: "Contact",
+        //     href: "/contact",
+        //     icon: "/email.svg",
+        //     alt: "Contact icon"
+        // },
+        // {
+        //     text: "FAQs",
+        //     href: "/faq",
+        //     icon: "/faq.png",
+        //     alt: "FAQ icon"
+        // },
         {
             text: "Login",
             href: "/login",
             icon: "/login.png",
             alt: "Login icon"
-        }
+        },
+        
     ]
 }
 
