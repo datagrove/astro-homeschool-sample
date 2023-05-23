@@ -14,7 +14,7 @@ let { testBtnNum = 0 } = Astro.props;
 let currBtnIdFront = testBtnNum;
 ---
 
-<div data-message={ testBtnNum } class="md:bg-feature-img bg-cover shadow h-64 md:mt-12 mb-4 mx-2 md:mx-4 md:p-4 grid grid-rows-6">
+<div data-message={ testBtnNum } class="md:bg-feature-img dark:bg-gray-800 bg-cover shadow h-64 md:mt-12 mb-4 mx-2 md:mx-4 md:p-4 grid grid-rows-6">
     <!-- <img 
         src="../../../../public/images/3dprinter.jpg" 
         alt="Children looking at a 3D printer"
@@ -22,42 +22,42 @@ let currBtnIdFront = testBtnNum;
     /> -->
     
     <div class="md:w-2/3 flex flex-col pb-10 row-start-2 md:row-start-3">
-        <div id="feature0" class="inline md:bg-gray-100 opacity-80 rounded py-4 px-1">
-            <h1 class="text-xl pb-2" set:html={ features[0].data.title }/>
-            <p class="italic text-sm" set:html={ features[0].data.description } />
+        <div id="feature0" class="inline md:bg-gray-100 opacity-95 dark:md:bg-gray-700 rounded py-4 px-1">
+            <h1 class="text-xl pb-2 dark:text-dgPrimaryDM" set:html={ features[0].data.title }/>
+            <p class="italic text-sm dark:text-gray-300" set:html={ features[0].data.description } />
         </div>
 
-        <div id="feature1" class="hidden md:bg-gray-100 opacity-80 rounded py-4 px-1">
-            <h1 class="text-xl pb-2" set:html={ features[1].data.title }/>
-            <p class="italic text-sm" set:html={ features[1].data.description } />
+        <div id="feature1" class="hidden md:bg-gray-100 opacity-95 dark:md:bg-gray-700 rounded py-4 px-1">
+            <h1 class="text-xl pb-2 dark:text-dgPrimaryDM" set:html={ features[1].data.title }/>
+            <p class="italic text-sm dark:text-gray-300" set:html={ features[1].data.description } />
         </div>
 
-        <div id="feature2" class="hidden md:bg-gray-100 opacity-80 rounded py-4 px-1">
-            <h1 class="text-xl pb-2" set:html={ features[2].data.title }/>
-            <p class="italic text-sm" set:html={ features[2].data.description } />
+        <div id="feature2" class="hidden md:bg-gray-100 opacity-95 dark:md:bg-gray-700 rounded py-4 px-1">
+            <h1 class="text-xl pb-2 dark:text-dgPrimaryDM" set:html={ features[2].data.title }/>
+            <p class="italic text-sm dark:text-gray-300" set:html={ features[2].data.description } />
         </div>
     </div>
 
     <div class="flex row-start-6">
         <button 
             id=0 
-            class="rounded-full bg-dgPrimary w-10 h-10 px-4 mr-2"
+            class="rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
         >
-            <p class="text-white">1</p>
+            <p class="text-white dark:text-gray-200">1</p>
         </button>        
         
         <button 
             id=1 
-            class="rounded-full bg-dgPrimary w-10 h-10 px-4 mr-2"
+            class="rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
         >
-            <p class="text-white">2</p>
+            <p class="text-white dark:text-gray-20">2</p>
         </button>
         
         <button 
             id=2 
-            class="rounded-full bg-dgPrimary w-10 h-10 px-4 mr-2"
+            class="rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
         >
-            <p class="text-white">3</p>
+            <p class="text-white dark:text-gray-200">3</p>
         </button>
     </div>
 

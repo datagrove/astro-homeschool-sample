@@ -8,7 +8,7 @@ module.exports = {
 				dgSecondary: "#245881",
 				accent: "#812458",
 				dgPrimaryDM: "#73A92F",
-				dgSecondaryDM: "#F5F5F5",
+				dgSecondaryDM: "#2FA9A2",
 				accentDM: "#2FA9A2",
 				cardBackgroundDM: "#2F2F2F",
 				dgTextPrimary: "#BFD39B"

@@ -10,13 +10,13 @@ const events = await getCollection('events', ({ data }) => {
         { 
             events.map(( event ) => (
             <div class="flex items-center m-2">
-                <div class="rounded-full flex justify-center items-center bg-dgSecondary w-28 h-24">
-                    <p class="text-center text-white" set:html={ event.data.date } />
+                <div class="rounded-full flex justify-center items-center bg-dgSecondary dark:bg-dgPrimaryDM w-16 h-16 md:w-24 md:h-24">
+                    <p class="text-center text-white dark:text-gray-200" set:html={ event.data.date } />
                 </div>
 
                 <div class="ml-4">
-                    <p class="font-bold" set:html={ event?.data.title } />
-                    <p class="italic" set:html={ event.data.location } />
+                    <p class="font-bold dark:text-dgSecondaryDM" set:html={ event?.data.title } />
+                    <p class="italic dark:text-gray-200" set:html={ event.data.location } />
                 </div>
             </div>    
             

@@ -1,3 +1,12 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
+
+@layer base {
+    body {
+        @apply dark:bg-black;
+    }
+    .highlight-div:not(:last-child) {
+        @apply border-r-2 border-gray-200
+    }
+}
