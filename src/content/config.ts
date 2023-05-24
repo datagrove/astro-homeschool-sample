@@ -51,6 +51,7 @@ const programs = defineCollection({
         draft: z.boolean().optional()
     })
 })
+
 export const collections = {
     'features': features,
     'highlights': highlights,

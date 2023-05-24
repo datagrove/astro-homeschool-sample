@@ -1,0 +1,15 @@
+---
+import { getCollection } from 'astro:content';
+
+const programs = await getCollection('programs', ({ data }) => {
+    return data.draft !== true;
+})
+---
+<div>
+    {
+        programs.map((program) => (
+            <h1 set:html={ program.data.title } />
+        ))
+    }
+
+</div>

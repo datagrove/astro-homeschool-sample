@@ -5,8 +5,12 @@ const events = await getCollection('events', ({ data }) => {
     return data.draft !==true;
 })
 ---
-<div>
+<div class="md:my-4 md:w-1/2 border md:shadow max-h-64 overflow-scroll md:mx-4">
     <div class="">
+        <h1 
+            set:html="Upcoming Events" 
+            class="text-2xl md:mb-4 text-center"
+        />
         { 
             events.map(( event ) => (
             <div class="flex items-center m-2">
