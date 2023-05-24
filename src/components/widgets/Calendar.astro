@@ -5,26 +5,49 @@ const events = await getCollection('events', ({ data }) => {
     return data.draft !==true;
 })
 ---
-<div class="md:my-4 md:w-1/2 border md:shadow max-h-64 overflow-scroll md:mx-4">
-    <div class="">
-        <h1 
-            set:html="Upcoming Events" 
-            class="text-2xl md:mb-4 text-center"
-        />
-        { 
-            events.map(( event ) => (
-            <div class="flex items-center m-2">
-                <div class="rounded-full flex justify-center items-center bg-dgSecondary dark:bg-dgPrimaryDM w-16 h-16 md:w-24 md:h-24">
-                    <p class="text-center text-white dark:text-gray-200" set:html={ event.data.date } />
-                </div>
+<div class="md:flex">
+    <div class="md:my-4 md:w-1/2 border md:shadow max-h-64 overflow-scroll md:mx-4">
+        <div class="">
+            <h1 
+                set:html="Upcoming Events" 
+                class="text-2xl md:mb-4 text-center"
+            />
+            { 
+                events.map(( event ) => (
+                <div class="flex items-center m-2">
+                    <div class="rounded-full flex justify-center items-center bg-dgSecondary dark:bg-dgPrimaryDM w-16 h-16 md:w-24 md:h-24">
+                        <p class="text-center text-white dark:text-gray-200" set:html={ event.data.date } />
+                    </div>
 
-                <div class="ml-4">
-                    <p class="font-bold dark:text-dgSecondaryDM" set:html={ event?.data.title } />
-                    <p class="italic dark:text-gray-200" set:html={ event.data.location } />
-                </div>
-            </div>    
-            
-            ))
-        }
+                    <div class="ml-4">
+                        <p class="font-bold dark:text-dgSecondaryDM" set:html={ event?.data.title } />
+                        <p class="italic dark:text-gray-200" set:html={ event.data.location } />
+                    </div>
+                </div>    
+                
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="md:my-4 md:w-1/2 border md:shadow max-h-64 mx-2 md:mx-4">
+        <div>
+            <label for="start" class="text-2xl">Find Events by Date:</label>
+            <input 
+                type="date" 
+                id="start" 
+                name="trip-start"
+                value="2023-05-24"
+                min="2023-01-01" max="2024-12-31"
+                class="text-2xl"
+            >
+        </div>
+
+        <div>
+            <p 
+                set:html="No events found"
+                class="italic py-4 mx-2"
+            />
+        </div>
     </div>
 </div>

@@ -41,14 +41,14 @@ let currBtnIdFront = testBtnNum;
     <div class="flex row-start-6">
         <button 
             id=0 
-            class="rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
+            class="featureBtn rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
         >
             <p class="text-white dark:text-gray-200">1</p>
         </button>        
         
         <button 
             id=1 
-            class="rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
+            class="featureBtn rounded-full bg-dgPrimary dark:bg-dgPrimaryDM w-10 h-10 px-4 mr-2"
         >
             <p class="text-white dark:text-gray-20">2</p>
         </button>
@@ -73,6 +73,8 @@ let currBtnIdFront = testBtnNum;
 
     const [btnNum, setBtnNum] = createSignal("0");
     const buttons = document.querySelectorAll('button');
+
+    console.log("Buttons: ", buttons)
 
     let currBtnId;
 

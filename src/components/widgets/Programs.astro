@@ -5,11 +5,139 @@ const programs = await getCollection('programs', ({ data }) => {
     return data.draft !== true;
 })
 ---
-<div>
+<div class="mx-2 md:mx-4 my-2 flex">
+    <div class="w-1/2">
     {
-        programs.map((program) => (
-            <h1 set:html={ program.data.title } />
+        programs.map((program, i) => (
+            <div class="border px-2 py-4">
+                <a href={ ``}>
+                    <h1 set:html=`${ program.data.title } >` />
+                </a>
+            </div>    
+        
         ))
     }
+    </div>
 
+    <div class="w-1/2 pl-2 border">
+        <div class="inline" id="0">
+            <button id="btn0" class="programBtn">
+                <h1 
+                    set:html={ programs[0].data.title }
+                    class="text-xl" 
+                />
+                <p set:html={ programs[0].data.description1 } />
+                <p set:html={ programs[0].data?.description2 } />
+                <p set:html=`Please contact the ${ programs[0].data.leaderTitle }, ${ programs[0].data.leaderNames }, at ${ programs[0].data.email } for more information.` />
+            </button>
+        </div>
+
+        <div class="hidden" id="1">
+            <button id="btn1" class="programBtn">
+                <h1 set:html={ programs[1].data.title } />
+            </button>
+        </div>
+
+        <div class="hidden" id="2">
+            <h1 set:html={ programs[2].data.title } />
+        </div>
+
+        <div class="hidden" id="3">
+            <h1 set:html={ programs[3].data.title } />
+        </div>
+
+        <div class="hidden" id="4">
+            <h1 set:html={ programs[4].data.title } />
+        </div>
+    </div>
 </div>
+
+<script>
+    import { createSignal } from 'solid-js';
+
+    const [btnNum, setBtnNum] = createSignal("0");
+    
+    let el0 = document.getElementById("0");
+    let el1 = document.getElementById("1");
+    let el2 = document.getElementById("2");
+    let el3 = document.getElementById("3");
+    let el4 = document.getElementById("4");
+
+    let btn0 = document.getElementById('btn0');
+
+    let currBtnId;
+
+    const programBtns = document.querySelectorAll('programBtn');
+
+    console.log("programBtns: ", programBtns)
+
+    programBtns.forEach((button) => {
+        button.addEventListener('click', () => {
+            setBtnNum(button.id);
+            currBtnId = Number(btnNum());
+            // console.log("currBtnId: ", currBtnId)
+            // alert(btnNum())
+
+            if(currBtnId == 0) {
+                el0?.classList.add('inline bg-dgSecondary');
+                el0?.classList.remove("hidden");
+                el0?.classList.remove("inline");
+                el1?.classList.add("hidden");
+                el2?.classList.remove("inline");
+                el2?.classList.add("hidden");
+                el3?.classList.remove("inline");
+                el3?.classList.add("hidden");
+                el4?.classList.remove("inline");
+                el4?.classList.add("hidden");
+
+            } else if(currBtnId == 1) {
+                el1?.classList.remove('hidden');
+                el1?.classList.add("inline");
+                el0?.classList.remove("inline");
+                el0?.classList.add("hidden");
+                el2?.classList.remove("inline");
+                el2?.classList.add("hidden");
+                el3?.classList.remove("inline");
+                el3?.classList.add("hidden");
+                el4?.classList.remove("inline");
+                el4?.classList.add("hidden");
+
+            } else if(currBtnId == 2) {
+                el2?.classList.add("inline");
+                el2?.classList.remove("hidden");
+                el1?.classList.remove("inline");
+                el1?.classList.add("hidden");
+                el0?.classList.remove("inline");
+                el0?.classList.add("hidden");
+                el3?.classList.remove("inline");
+                el3?.classList.add("hidden");
+                el4?.classList.remove("inline");
+                el4?.classList.add("hidden");
+            } else if(currBtnId == 3) {
+                el0?.classList.add('hidden');
+                el0?.classList.remove("inline");
+                el0?.classList.remove("inline");
+                el1?.classList.add("hidden");
+                el2?.classList.remove("inline");
+                el2?.classList.add("hidden");
+                el3?.classList.remove("hidden");
+                el3?.classList.add("inline");
+                el4?.classList.remove("inline");
+                el4?.classList.add("hidden");
+            } else {
+                el0?.classList.add('hidden');
+                el0?.classList.remove("inline");
+                el0?.classList.remove("inline");
+                el1?.classList.add("hidden");
+                el2?.classList.remove("inline");
+                el2?.classList.add("hidden");
+                el3?.classList.remove("inline");
+                el3?.classList.add("hidden");
+                el4?.classList.remove("hidden");
+                el4?.classList.add("inline");
+            }
+        });
+    });
+
+    
+</script>
