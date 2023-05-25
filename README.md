@@ -1,41 +1,64 @@
-# Astro Starter Kit: Basics
+# Datagrove Homeschool Co-op Template Website
 
-```
-npm create astro@latest -- --template basics
-```
+## About
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+The Datagrove Homeschool Co-op Template Website demonstrates the widgets and features available to member users. Datagrove is committed to open source code, so homeschooling families may customize this codebase as little or as much as they desire. The Datagrove team specific chose the Astro framework to make code customization as easy as accessible as possible - to folks with significant or little to no experience with coding.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+[Live template site (work in progress)](dg.homeschool-template.surge.sh) | [GitHub Repo](https://github.com/datagrove/astro-homeschool-sample)
 
-![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
+## 🚀 Technology Used
+* Astro 
+* SolidJS 
+* TailwindCSS
 
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
 
 ```
 /
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+|   └── images/
 ├── src/
 │   ├── components/
-│   │   └── Card.astro
+│   │   ├── common
+|   |   |  ├── Header.astro
+|   |   |  └── MobileMenu.astro
+|   |   ├── widgets
+|   |   |   ├── Calendar.astro
+|   |   |   ├── Feature.astro
+|   |   |   ├── Highlights.astro
+|   |   |   └── Programs.astro
+|   |   └── Card.astro  
+|   ├── content
+|   |   ├── events
+|   |   ├── features
+|   |   ├── guidelines
+|   |   ├── highlights
+|   |   └── programs
 │   ├── layouts/
 │   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
+│   ├── pages/
+│   |   ├── index.astro
+|   |   ├── 404.astro
+|   |   ├── contact.md
+|   |   ├── faq.mdx
+|   |   ├── guideliens.astro
+|   |   └── join.md
+|   ├── data.ts
+|   ├── env.d.ts
+|   └── styles.css
+├── .gitignore
+├── astro.config.mjs
+├── LICENSE
+├── package-lock.json
+├── package.json
+├── README.md
+└── tailwind.config.cjs
+
+
+
 └── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
 
 ## 🧞 Commands
 
@@ -50,6 +73,3 @@ All commands are run from the root of the project, from a terminal:
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
 
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
