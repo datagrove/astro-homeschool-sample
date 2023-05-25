@@ -53,12 +53,8 @@ The Datagrove Homeschool Co-op Template Website demonstrates the widgets and fea
 ├── package.json
 ├── README.md
 └── tailwind.config.cjs
-
-
-
 └── package.json
 ```
-
 
 ## 🧞 Commands
 
