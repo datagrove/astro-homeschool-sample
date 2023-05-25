@@ -52,7 +52,7 @@ The Datagrove Homeschool Co-op Template Website demonstrates the widgets and fea
 ├── package-lock.json
 ├── package.json
 ├── README.md
-└── tailwind.config.cjs
+├── tailwind.config.cjs
 └── package.json
 ```
 
