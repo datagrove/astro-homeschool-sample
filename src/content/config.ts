@@ -52,9 +52,18 @@ const programs = defineCollection({
     })
 })
 
+const guidelines = defineCollection({
+    schema: z.object({
+        title: z.string().optional(),
+        updated: z.string().optional(),
+        draft: z.boolean().optional(),
+    })
+})
+
 export const collections = {
     'features': features,
     'highlights': highlights,
     'events': events,
     'programs': programs,
+    'guidelines': guidelines,
 };

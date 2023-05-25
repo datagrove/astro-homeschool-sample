@@ -9,45 +9,69 @@ const programs = await getCollection('programs', ({ data }) => {
     <div class="w-1/2">
     {
         programs.map((program, i) => (
-            <div class="border px-2 py-4">
-                <a href={ ``}>
-                    <h1 set:html=`${ program.data.title } >` />
-                </a>
+            <div class="programDiv border px-2 py-4 bg-dgPrimary dark:bg-dgPrimaryDM">
+                <button class="programBtn" id={ i.toString() }>
+                    <h1 
+                        set:html={ `${ program.data.title } >` }
+                        class="text-white text-left dark:text-gray-200"
+                    />
+                </button>
+
             </div>    
         
         ))
     }
     </div>
 
-    <div class="w-1/2 pl-2 border">
-        <div class="inline" id="0">
-            <button id="btn0" class="programBtn">
-                <h1 
-                    set:html={ programs[0].data.title }
-                    class="text-xl" 
-                />
-                <p set:html={ programs[0].data.description1 } />
-                <p set:html={ programs[0].data?.description2 } />
-                <p set:html=`Please contact the ${ programs[0].data.leaderTitle }, ${ programs[0].data.leaderNames }, at ${ programs[0].data.email } for more information.` />
-            </button>
+    <div class="w-1/2 px-2 h-76 overflow-scroll md:px-4 py-6 border bg-dgSecondary dark:bg-dgSecondaryDM">
+        <div class="inline" id="div0">
+            <h1 
+                set:html={ programs[0].data.title }
+                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200" 
+            />
+            <p class="text-blue-100" set:html={ programs[0].data.description1 } />
+            <p class="text-blue-100" set:html={ programs[0].data?.description2 } />
+            <p class="text-blue-100" set:html=`Please contact the ${ programs[0].data.leaderTitle }, ${ programs[0].data.leaderNames }, at ${ programs[0].data.email }, for more information.` />
         </div>
 
-        <div class="hidden" id="1">
-            <button id="btn1" class="programBtn">
-                <h1 set:html={ programs[1].data.title } />
-            </button>
+        <div class="hidden" id="div1">
+            <h1 
+                set:html={ programs[1].data.title } 
+                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+            />
+            <p class="text-blue-100" set:html={ programs[1].data.description1 } />
+            <p class="text-blue-100" set:html={ programs[1].data?.description2 } />
+            <p class="text-blue-100" set:html=`Please contact the ${ programs[1].data.leaderTitle }, ${ programs[1].data.leaderNames }, at ${ programs[1].data.email }, for more information.` />
         </div>
 
-        <div class="hidden" id="2">
-            <h1 set:html={ programs[2].data.title } />
+        <div class="hidden overflow-scroll" id="div2">
+            <h1 
+                set:html={ programs[2].data.title } 
+                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+            />
+            <p class="text-blue-100 overflow-scroll" set:html={ programs[2].data.description1 } />
+            <p class="text-blue-100" set:html={ programs[2].data?.description2 } />
+            <p class="text-blue-100 overflow-scroll" set:html=`Please contact the ${ programs[2].data.leaderTitle }, ${ programs[2].data.leaderNames }, at ${ programs[2].data.email }, for more information.` />
         </div>
 
-        <div class="hidden" id="3">
-            <h1 set:html={ programs[3].data.title } />
+        <div class="hidden" id="div3">
+            <h1 
+                set:html={ programs[3].data.title } 
+                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+            />
+            <p class="text-blue-100" set:html={ programs[3].data.description1 } />
+            <p class="text-blue-100" set:html={ programs[3].data?.description2 } />
+            <p class="text-blue-100" set:html=`Please contact the ${ programs[3].data.leaderTitle }, ${ programs[3].data.leaderNames }, at ${ programs[3].data.email }, for more information.` />
         </div>
 
-        <div class="hidden" id="4">
-            <h1 set:html={ programs[4].data.title } />
+        <div class="hidden" id="div4">
+            <h1 
+                set:html={ programs[4].data.title } 
+                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+            />
+            <p class="text-blue-100" set:html={ programs[4].data.description1 } />
+            <p class="text-blue-100" set:html={ programs[4].data?.description2 } />
+            <p class="text-blue-100" set:html=`Please contact the ${ programs[4].data.leaderTitle }, ${ programs[4].data.leaderNames }, at ${ programs[4].data.email }, for more information.` />
         </div>
     </div>
 </div>
@@ -57,29 +81,31 @@ const programs = await getCollection('programs', ({ data }) => {
 
     const [btnNum, setBtnNum] = createSignal("0");
     
-    let el0 = document.getElementById("0");
-    let el1 = document.getElementById("1");
-    let el2 = document.getElementById("2");
-    let el3 = document.getElementById("3");
-    let el4 = document.getElementById("4");
-
-    let btn0 = document.getElementById('btn0');
+    //these are the divs
+    let el0 = document.getElementById("div0");
+    let el1 = document.getElementById("div1");
+    let el2 = document.getElementById("div2");
+    let el3 = document.getElementById("div3");
+    let el4 = document.getElementById("div4");
 
     let currBtnId;
 
-    const programBtns = document.querySelectorAll('programBtn');
+    const programDivs = document.querySelectorAll('div.programDiv');
+    const programBtns = document.querySelectorAll('button.programBtn');
 
-    console.log("programBtns: ", programBtns)
+    programDivs.forEach((div) => {
+        div.addEventListener('hover', () => {
+            div.classList.add('bg-red-400')
+        })
+    })
 
     programBtns.forEach((button) => {
         button.addEventListener('click', () => {
             setBtnNum(button.id);
             currBtnId = Number(btnNum());
-            // console.log("currBtnId: ", currBtnId)
-            // alert(btnNum())
 
             if(currBtnId == 0) {
-                el0?.classList.add('inline bg-dgSecondary');
+                el0?.classList.add('inline');
                 el0?.classList.remove("hidden");
                 el0?.classList.remove("inline");
                 el1?.classList.add("hidden");
@@ -101,14 +127,13 @@ const programs = await getCollection('programs', ({ data }) => {
                 el3?.classList.add("hidden");
                 el4?.classList.remove("inline");
                 el4?.classList.add("hidden");
-
             } else if(currBtnId == 2) {
-                el2?.classList.add("inline");
-                el2?.classList.remove("hidden");
-                el1?.classList.remove("inline");
-                el1?.classList.add("hidden");
                 el0?.classList.remove("inline");
                 el0?.classList.add("hidden");
+                el1?.classList.remove("inline");
+                el1?.classList.add("hidden");
+                el2?.classList.add("inline");
+                el2?.classList.remove("hidden");
                 el3?.classList.remove("inline");
                 el3?.classList.add("hidden");
                 el4?.classList.remove("inline");

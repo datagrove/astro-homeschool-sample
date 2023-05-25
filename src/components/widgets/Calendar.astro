@@ -5,12 +5,12 @@ const events = await getCollection('events', ({ data }) => {
     return data.draft !==true;
 })
 ---
-<div class="md:flex">
-    <div class="md:my-4 md:w-1/2 border md:shadow max-h-64 overflow-scroll md:mx-4">
+<div class="md:flex my-2 mx-2 pb-4 md:mx-4 bg-gray-200 dark:bg-gray-700">
+    <div class=" md:my-4 md:w-1/2 shadow max-h-64 overflow-scroll mx-2 md:mx-4 py-4">
         <div class="">
             <h1 
                 set:html="Upcoming Events" 
-                class="text-2xl md:mb-4 text-center"
+                class="text-2xl text-dgPrimary pt-4 dark:text-gray-200 md:mb-4 text-center"
             />
             { 
                 events.map(( event ) => (
@@ -30,23 +30,23 @@ const events = await getCollection('events', ({ data }) => {
         </div>
     </div>
 
-    <div class="md:my-4 md:w-1/2 border md:shadow max-h-64 mx-2 md:mx-4">
+    <div class="md:my-4 md:w-1/2 border rounded md:shadow p-2 max-h-64 mx-2 md:mx-4">
         <div>
-            <label for="start" class="text-2xl">Find Events by Date:</label>
+            <label for="start" class="text-2xl text-dgSecondary dark:text-gray-200">Find Events by Date: </label>
             <input 
                 type="date" 
                 id="start" 
                 name="trip-start"
                 value="2023-05-24"
                 min="2023-01-01" max="2024-12-31"
-                class="text-2xl"
+                class="text-xl bg-gray-200 dark:bg-gray-700 p-1 dark:text-dgTextPrimary"
             >
         </div>
 
         <div>
             <p 
                 set:html="No events found"
-                class="italic py-4 mx-2"
+                class="italic py-4 dark:text-gray-200"
             />
         </div>
     </div>

@@ -1,0 +1,14 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const guidelines = await getCollection('guidelines', ({ data }) => {
+    return data.draft !== true;
+})
+---
+<Layout title="Guidelines">
+    <div class="mt-12">
+        <h1 set:html="OHA Guidelines" />
+    </div>
+</Layout>
+
