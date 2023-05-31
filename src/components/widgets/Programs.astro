@@ -5,75 +5,118 @@ const programs = await getCollection('programs', ({ data }) => {
     return data.draft !== true;
 })
 ---
-<div class="mx-2 md:mx-4 my-2 flex">
-    <div class="w-1/2">
-    {
-        programs.map((program, i) => (
-            <div class="programDiv border px-2 py-4 bg-dgPrimary dark:bg-dgPrimaryDM">
-                <button class="programBtn" id={ i.toString() }>
-                    <h1 
-                        set:html={ `${ program.data.title } >` }
-                        class="text-white text-left dark:text-gray-200"
-                    />
-                </button>
+<div class="mx-2 md:mx-4 md:my-6">
+    <h1 
+        class="text-2xl text-dgSecondary dark:text-gray-200 border-b-2 border-dgSecondary mb-2 py-2"  
+        set:html="Our Programs" 
+    />
 
-            </div>    
-        
-        ))
-    }
+    <div class="hidden my-2 md:flex">
+        <div class="w-full md:w-1/2">
+        {
+            programs.map((program, i) => (
+                <div class="programDiv border px-2 py-4 bg-dgPrimary dark:bg-dgPrimaryDM">
+                    <button class="programBtn flex flex-around" id={ i.toString() }>
+                        <h1 
+                            set:html={ program.data.title }
+                            class="text-white text-left dark:text-gray-200"
+                        />
+                    </button>
+                </div>    
+            
+            ))
+        }
+        </div>
+
+        <div class="w-full md:w-1/2 px-2 h-76 overflow-auto md:px-4 py-6 border bg-dgSecondary dark:bg-dgSecondaryDM ">
+            <div class="inline" id="div0">
+                <h1 
+                    set:html={ programs[0].data.title }
+                    class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200" 
+                />
+                <p class="text-blue-100" set:html={ programs[0].data.description1 } />
+                <p class="text-blue-100" set:html={ programs[0].data?.description2 } />
+                <p class="text-blue-100" set:html=`Please contact the ${ programs[0].data.leaderTitle }, ${ programs[0].data.leaderNames }, at ${ programs[0].data.email }, for more information.` />
+            </div>
+
+            <div class="hidden overflow-auto" id="div1">
+                <h1 
+                    set:html={ programs[1].data.title } 
+                    class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+                />
+                <p class="text-blue-100" set:html={ programs[1].data.description1 } />
+                <p class="text-blue-100" set:html={ programs[1].data?.description2 } />
+                <p class="text-blue-100" set:html=`Please contact the ${ programs[1].data.leaderTitle }, ${ programs[1].data.leaderNames }, at ${ programs[1].data.email }, for more information.` />
+            </div>
+
+            <div class="hidden overflow-auto" id="div2">
+                <h1 
+                    set:html={ programs[2].data.title } 
+                    class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+                />
+                <p class="text-blue-100 overflow-auto" set:html={ programs[2].data.description1 } />
+                <p class="text-blue-100 pt-4" set:html={ programs[2].data?.description2 } />
+                <p class="text-blue-100 overflow-auto" set:html=`Please contact the ${ programs[2].data.leaderTitle }, ${ programs[2].data.leaderNames }, at ${ programs[2].data.email }, for more information.` />
+            </div>
+
+            <div class="hidden" id="div3">
+                <h1 
+                    set:html={ programs[3].data.title } 
+                    class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+                />
+                <p class="text-blue-100" set:html={ programs[3].data.description1 } />
+                <p class="text-blue-100" set:html={ programs[3].data?.description2 } />
+                <p class="text-blue-100" set:html=`Please contact the ${ programs[3].data.leaderTitle }, ${ programs[3].data.leaderNames }, at ${ programs[3].data.email }, for more information.` />
+            </div>
+
+            <div class="hidden" id="div4">
+                <h1 
+                    set:html={ programs[4].data.title } 
+                    class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
+                />
+                <p class="text-blue-100" set:html={ programs[4].data.description1 } />
+                <p class="text-blue-100" set:html={ programs[4].data?.description2 } />
+                <p class="text-blue-100" set:html=`Please contact the ${ programs[4].data.leaderTitle }, ${ programs[4].data.leaderNames }, at ${ programs[4].data.email }, for more information.` />
+            </div>
+        </div>
     </div>
 
-    <div class="w-1/2 px-2 h-76 overflow-scroll md:px-4 py-6 border bg-dgSecondary dark:bg-dgSecondaryDM">
-        <div class="inline" id="div0">
-            <h1 
-                set:html={ programs[0].data.title }
-                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200" 
-            />
-            <p class="text-blue-100" set:html={ programs[0].data.description1 } />
-            <p class="text-blue-100" set:html={ programs[0].data?.description2 } />
-            <p class="text-blue-100" set:html=`Please contact the ${ programs[0].data.leaderTitle }, ${ programs[0].data.leaderNames }, at ${ programs[0].data.email }, for more information.` />
-        </div>
+    <div class="mobile-view md:hidden">
+        <div class="w-full md:w-1/2">
+            {
+                programs.map((program, i) => (
+                    <div class="programDivMobile border px-2 py-4 bg-dgPrimary dark:bg-dgPrimaryDM">
+                        <button class="programBtnMobile flex flex-around" id={ i.toString() }>
+                            <h1 set:html={ program.data.title }
+                                class="text-white text-left dark:text-gray-200"
+                            />
+                            <p 
+                                set:html=">" 
+                                class="hidden md:inline text-white text-left dark:text-gray-200"
+                            />
+                        </button>
+                    </div>    
 
-        <div class="hidden" id="div1">
-            <h1 
-                set:html={ programs[1].data.title } 
-                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
-            />
-            <p class="text-blue-100" set:html={ programs[1].data.description1 } />
-            <p class="text-blue-100" set:html={ programs[1].data?.description2 } />
-            <p class="text-blue-100" set:html=`Please contact the ${ programs[1].data.leaderTitle }, ${ programs[1].data.leaderNames }, at ${ programs[1].data.email }, for more information.` />
-        </div>
+                    <div class="hidden flex-col justify-center items-center" id=`programDescription${ i }`>
+                        <div>
+                            <p class="text-dgSecondary" set:html={ program.data.description1 } />
+                            <p class="text-dgSecondary" set:html={ program.data?.description2 } />
+                            <p class="text-dgSecondary" set:html=`Please contact the ${ program.data.title }, ${ program.data.leaderNames } at ${ program.data.email } for more information.` />
+                        </div>
 
-        <div class="hidden overflow-scroll" id="div2">
-            <h1 
-                set:html={ programs[2].data.title } 
-                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
-            />
-            <p class="text-blue-100 overflow-scroll" set:html={ programs[2].data.description1 } />
-            <p class="text-blue-100" set:html={ programs[2].data?.description2 } />
-            <p class="text-blue-100 overflow-scroll" set:html=`Please contact the ${ programs[2].data.leaderTitle }, ${ programs[2].data.leaderNames }, at ${ programs[2].data.email }, for more information.` />
-        </div>
-
-        <div class="hidden" id="div3">
-            <h1 
-                set:html={ programs[3].data.title } 
-                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
-            />
-            <p class="text-blue-100" set:html={ programs[3].data.description1 } />
-            <p class="text-blue-100" set:html={ programs[3].data?.description2 } />
-            <p class="text-blue-100" set:html=`Please contact the ${ programs[3].data.leaderTitle }, ${ programs[3].data.leaderNames }, at ${ programs[3].data.email }, for more information.` />
-        </div>
-
-        <div class="hidden" id="div4">
-            <h1 
-                set:html={ programs[4].data.title } 
-                class="text-xl pb-2 md:pb-4 text-white dark:text-gray-200"
-            />
-            <p class="text-blue-100" set:html={ programs[4].data.description1 } />
-            <p class="text-blue-100" set:html={ programs[4].data?.description2 } />
-            <p class="text-blue-100" set:html=`Please contact the ${ programs[4].data.leaderTitle }, ${ programs[4].data.leaderNames }, at ${ programs[4].data.email }, for more information.` />
-        </div>
+                        <div>
+                            <button class="closeBtn bg-accent px-2 rounded" id=`close${ i }`>
+                                <p class="text-center text-white" set:html="Close" />
+                            </button>
+                        </div>
+                    
+                    </div>
+                
+                ))
+            }
+            </div>
     </div>
+
 </div>
 
 <script>
@@ -88,16 +131,17 @@ const programs = await getCollection('programs', ({ data }) => {
     let el3 = document.getElementById("div3");
     let el4 = document.getElementById("div4");
 
+    let mobileDiv0 = document.getElementById('programDescription0');
+    let mobileDiv1 = document.getElementById('programDescription1');
+    let mobileDiv2 = document.getElementById('programDescription2');
+    let mobileDiv3 = document.getElementById('programDescription3');
+    let mobileDiv4 = document.getElementById('programDescription4');
+
     let currBtnId;
 
-    const programDivs = document.querySelectorAll('div.programDiv');
     const programBtns = document.querySelectorAll('button.programBtn');
-
-    programDivs.forEach((div) => {
-        div.addEventListener('hover', () => {
-            div.classList.add('bg-red-400')
-        })
-    })
+    const programBtnsMobile = document.querySelectorAll('button.programBtnMobile');
+    const closeBtns = document.querySelectorAll('button.closeBtn');
 
     programBtns.forEach((button) => {
         button.addEventListener('click', () => {
@@ -160,6 +204,62 @@ const programs = await getCollection('programs', ({ data }) => {
                 el3?.classList.add("hidden");
                 el4?.classList.remove("hidden");
                 el4?.classList.add("inline");
+            }
+        });
+    });
+
+    closeBtns.forEach((button) => {
+        button.addEventListener('click', () => {
+            setBtnNum(button.id);
+
+            if(currBtnId == 0) {
+                mobileDiv0.classList.remove("inline");
+                mobileDiv0.classList.add("hidden");
+            } else if(currBtnId == 1) {
+                mobileDiv1.classList.remove("inline");
+                mobileDiv1.classList.add("hidden");
+            } else if(currBtnId == 2) {
+                mobileDiv2.classList.remove("inline");
+                mobileDiv2.classList.add("hidden");
+            } else if(currBtnId == 3) {
+                mobileDiv3.classList.remove("inline");
+                mobileDiv3.classList.add("hidden");
+            } else if(currBtnId == 4) {
+                mobileDiv4.classList.remove("inline");
+                mobileDiv4.classList.add("hidden");
+            }
+        })
+    })
+
+    programBtnsMobile.forEach((button, i) => {
+        button.addEventListener('click', () => {
+            setBtnNum(button.id);
+            currBtnId = Number(btnNum());
+
+
+            if(currBtnId == 0 && mobileDiv0.classList.contains("hidden")) {
+                mobileDiv0.classList.remove("hidden");
+                mobileDiv0.classList.add("flex");
+            } 
+
+            if(currBtnId == 1 && mobileDiv1.classList.contains("hidden")) {
+                mobileDiv1.classList.remove("hidden");
+                mobileDiv1.classList.add("flex");
+            }
+
+            if(currBtnId == 2 && mobileDiv2.classList.contains("hidden")) {
+                mobileDiv2.classList.remove("hidden");
+                mobileDiv2.classList.add("flex");
+            }
+
+            if(currBtnId == 3 && mobileDiv3.classList.contains("hidden")) {
+                mobileDiv3.classList.remove("hidden");
+                mobileDiv3.classList.add("flex");
+            }
+
+            if(currBtnId == 4 && mobileDiv4.classList.contains("hidden")) {
+                mobileDiv4.classList.remove("hidden");
+                mobileDiv4.classList.add("flex");
             }
         });
     });
