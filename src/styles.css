@@ -9,4 +9,13 @@
     .highlight-div:not(:last-child) {
         @apply border-r-2 border-gray-200
     }
+    .member-div {
+        @apply mb-4
+    }
+    .title-div {
+        @apply bg-dgPrimary text-white py-2 px-1 text-xl
+    }
+    .text-div {
+        @apply text-dgSecondary
+    }
 }

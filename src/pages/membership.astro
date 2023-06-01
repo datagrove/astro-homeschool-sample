@@ -1,0 +1,63 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MembershipForm from '../components/widgets/MembershipForm.astro';
+---
+
+<Layout title="Membership">
+    <div class="mt-12 mx-2 md:mx-4">
+        <div class="flex justify-center">
+            <a href="#join">Join Today!</a>
+        </div>
+
+        <div class="">
+            <div class="member-div">
+                <div class="title-div">
+                    <h1 set:html="About the Oswego Homeschool Association" />
+                </div>
+
+                <div class="text-div">
+                    <p set:html="The Oswego Homeschool Association (OHA) is a non-profit group for homeschooling parents and children of all ages. We believe that parents are the primary teachers and are responsible for all lawful reporting, curricula choices, and core subject instruction. OHA aims to support the role of the parent by offering meetings, special events, field trips, and educational opportunities. We are an inclusive, eclectic, local, member-run organization that honors the diversity of homeschoolers and provides a supportive community for our members. Our reasons for homeschooling differ, as do our styles and approaches to education. What we share is a respect for all learners and a desire to support one another." />
+                </div>
+            </div>
+
+            <div class="member-div">
+                <div class="title-div">
+                    <h1 set:html="What We Offer" />
+                </div>
+
+                <div class="text-div">
+                    <p set:html="OHA is very happy to provide a broad range of extracurricular and supplemental activies to Oswego's homeschool community. As an OHA member, your child can participate in our Lakeside Enrichment and Academic Program (LEAP), choir, theatrical performances, ROYALS athletics, and more. Our programs are ever changing and we are always looking for ways to enrich our children's lives." />
+                </div>
+            </div>
+
+            <div class="member-div">
+                <div class="title-div">
+                    <h1 set:html="Questions?" />
+                </div>
+
+                <div class="text-div">
+                    <p>If you have any questions about becoming an OHA member, feel free to email us at <a href="mailto:oswegohamembership@gmail.com" target="_blank">oswegohamembership@gmail.com</a> for more information. When you are ready to join, simply complete the <a href="#join">Membership Request form</a>.</p>
+                </div>
+            </div>
+
+            <div class="member-div">
+                <div class="title-div">
+                    <h1 set:html="Membership Request Form" />
+                </div>
+
+                <div id="join" class="text-div">
+                    <MembershipForm />
+                </div>
+            </div>
+
+
+        </div>
+        
+    </div>
+</Layout>
+
+<style>
+    .title-div {
+        background-color: ;
+    }
+</style>

@@ -18,6 +18,10 @@ export const headerData = {
                     href: "/faq"
                 },
                 {
+                    text: "Membership",
+                    href: "/membership"
+                },
+                {
                     text: "Contact Info",
                     href: "/contact"
                 }
@@ -35,12 +39,6 @@ export const headerData = {
                     href: "programs/leap"
                 },
             ]
-        },
-        {
-            text: "Join",
-            href: "/join",
-            icon: "/add.svg",
-            alt: "Join icon"
         },
         // {
         //     text: "Contact",
