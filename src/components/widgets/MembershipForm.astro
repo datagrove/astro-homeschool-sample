@@ -1,9 +1,12 @@
 ---
 import AdultInfo from '../widgets/AdultInfo.astro';
 import ChildInfo from '../widgets/ChildInfo.astro';
+import Notification from './Notification.astro';
+import MembershipQuestions from './MembershipQuestions.astro';
+import Agreement from './Agreement.astro';
 ---
 
-<div>
+<div class="mt-2">
     <form>
         <fieldset>
             <legend>Adult Information</legend>
@@ -17,16 +20,19 @@ import ChildInfo from '../widgets/ChildInfo.astro';
 
         <fieldset>
             <legend>Notifcation Preferences</legend>
+            <Notification />
         </fieldset>
 
         <fieldset>
             <legend>General Membership Information</legend>
+            <MembershipQuestions />
         </fieldset>
 
         <fieldset>
             <legend>Membership Agreement</legend>
+            <Agreement />
         </fieldset>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Submit" class="bg-accent text-white px-4 py-2 rounded-full my-2">
     </form>
 </div>

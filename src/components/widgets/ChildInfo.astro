@@ -1,35 +1,36 @@
 <div>
-    <button class="bg-red-600 text-white rounded-full px-2 py-1">x</button><br>
+    <button class="bg-accent text-white rounded-full h-8 w-8">x</button><br>
     
     <label for="studentlname">Student Last Name</label><br>
-    <input type="text" id="studentlname" name="studentlname" required><br>
+    <input type="text" id="studentlname" name="studentlname" required class="form-input"><br>
 
     <label for="studentfname">Student First Name</label><br>
-    <input type="text" id="studentfname" name="studentfname" required><br>
+    <input type="text" id="studentfname" name="studentfname" required class="form-input"><br>
 
     <label for="email">Student Email</label><br>
-    <input type="email" id="studentemail" name="studentemail"><br>
+    <input type="email" id="studentemail" name="studentemail" class="form-input"><br>
 
     <label for="password">Student Password</label><br>
-    <input type="password" id="studentpassword" name="studentpassword"><br>
+    <input type="password" id="studentpassword" name="studentpassword" class="form-input"><br>
 
     <label for="password">Confirm Password</label><br>
-    <input type="password" id="confirmstudentPassword" name="confirmstudentPassword"><br>
+    <input type="password" id="confirmstudentPassword" name="confirmstudentPassword" class="form-input"><br>
 
-    <p>If Student Email and Student Password are both provided the student will have the ability to log in.</p><br>
+    <p class="italic">If Student Email and Student Password are both provided, the student will have the ability to log in.</p><br>
 
     <label for="medical">Medical Notes/Allergies</label><br>
-    <input type="text" id="medical" name="medical"><br>
+    <input type="text" id="medical" name="medical" class="form-input"><br>
 
     <label for="avatar">Student Photo</label><br>
     <input 
         type="file"
         id="avatar" name="avatar"
         accept="image/png, image/jpeg"
+        class="mb-4"
     ><br>
 
     <label for="otherInfo">Please share any other information that you would like us to know about your student:</label><br>
-    <input type="text" id="otherInfo" name="otherInfo"<br>
+    <input type="text" id="otherInfo" name="otherInfo" class="form-input mb-4"><br>
 
     <button class="bg-dgPrimary rounded-full text-white px-2 py-1">Add Student</button>
 
