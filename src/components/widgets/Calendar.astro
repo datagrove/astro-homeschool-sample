@@ -36,8 +36,8 @@ const events = await getCollection('events', ({ data }) => {
             <input 
                 type="date" 
                 id="start" 
-                name="trip-start"
-                value="2023-05-24"
+                name="start"
+                value="2023-06-08"
                 min="2023-01-01" max="2024-12-31"
                 class="text-xl bg-gray-200 dark:bg-gray-700 p-1 dark:text-dgTextPrimary"
             >
@@ -51,3 +51,55 @@ const events = await getCollection('events', ({ data }) => {
         </div>
     </div>
 </div>
+
+<script>    
+    const input = document.getElementById("start") as HTMLInputElement | null;
+    let selectedDate;
+
+    if(input != null) {
+        selectedDate = input.value;
+    }
+
+    input?.addEventListener("input", updateDate);
+
+    let testDates = {
+        "2023-06-08": {
+            name: "Test Event",
+            time: "3:00-5:00 PM",
+            location: "McDonald's",
+            contact: "OHA"
+        },
+        "2023-06-09": {
+            name: "Second test",
+            time: "8:00-10:00 AM",
+            location: "Home",
+            contact: "Me"
+        }
+    }
+
+    let dateArr = Object.keys(testDates);
+
+    function updateDate() {
+        let text = document.getElementById("start")?.value.toString();
+        console.log("Date selected: ", text);
+
+        if(dateArr.includes(text)) {
+            console.log("the value is in the array: ", dateArr[text])
+        }
+
+        console.log(dateArr)
+    }
+
+
+
+    console.log("dateArr: ", dateArr)
+    console.log("selectedDate: ", selectedDate);
+    console.log("type of selectedDate:", typeof(selectedDate))
+
+    if(dateArr.includes(selectedDate)) {
+        console.log("There is an event this day")
+    } else {
+        console.log("nothing found")
+    }
+
+</script>
